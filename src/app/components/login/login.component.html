@@ -1,0 +1,31 @@
+
+<h1>Connexion</h1>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <i class="fas fa-envelope"></i> 
+    <input type="email" id="email" formControlName="email" class="form-control" />
+    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+      <small class="text-danger">Un email valide est requis.</small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="plainPassword">Mot de passe</label>
+    <i class="fas fa-lock"></i> 
+    <input type="password" id="plainPassword" formControlName="plainPassword" class="form-control" />
+    <div *ngIf="loginForm.get('plainPassword')?.invalid && loginForm.get('plainPassword')?.touched">
+      <small class="text-danger">Le mot de passe est requis.</small>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Se connecter</button>
+  >
+
+</form> 
+
+
+
