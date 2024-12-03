@@ -9,11 +9,11 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { EmploiFormComponent } from './emploi-form/emploi-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
+
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { EmploiSimpleComponent } from './emploi-simple/emploi-simple.component';
+
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  // Importer les animations Angular
 
@@ -23,11 +23,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
     EmploiListComponent,
     EmploiFormComponent,
     NavbarComponent,
-    FooterComponent,
+    
     RegisterComponent,
     HomeComponent,
     LoginComponent,
-    EmploiSimpleComponent,
+  
   
   ],
   imports: [

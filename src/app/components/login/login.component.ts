@@ -24,10 +24,7 @@ export class LoginComponent {
     });
   }
   
-  ngOnInit() {
-    // Initialiser Google Sign-In
-    (window as any).onGoogleSignIn = this.handleGoogleSignIn.bind(this);
-  }
+ 
   onSubmit() {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
@@ -53,27 +50,5 @@ export class LoginComponent {
 
 
   
-  handleGoogleSignIn(googleUser: any) {
-    const idToken = googleUser.credential;
-    this.authService.googleLogin(idToken).subscribe({
-      next: (response: any) => {
-        console.log('Google login response:', response);
-
-        const userRole = response.role;
-        this.userService.setUserRole(userRole);
-
-        if (userRole === 'ROLE_ADMIN') {
-          this.router.navigate(['/emploi']);
-        } else if (userRole === 'ROLE_USER') {
-          this.router.navigate(['/emploi-simple']);
-        } else {
-          this.errorMessage = 'Rôle utilisateur inconnu.';
-        }
-      },
-      error: (err: any) => {
-        console.error('Erreur lors de la connexion Google:', err);
-        this.errorMessage = "Connexion échouée via Google.";
-      }
-    });
-  }
+  
 }
